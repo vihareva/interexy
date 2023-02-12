@@ -7,15 +7,16 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/worker.js":
+/***/ "./src/worker.ts":
 /*!***********************!*\
-  !*** ./src/worker.js ***!
+  !*** ./src/worker.ts ***!
   \***********************/
 /***/ (() => {
 
-eval("// import {hardCalc} from \"./index.js\";\r\n//\r\n// onmessage = function(e) {\r\n//     console.log(e.data);\r\n//     hardCalc(e.data)\r\n//     postMessage('message received from worker');\r\n// }\r\n//To load web worker from FILE in a project set up with Webpack\r\n(() => {\r\n    console.log(\"worker_function loaded\");\r\n\r\n    window.worker_function = function() {\r\n        self.onmessage = (e) => {\r\n            console.log(e);\r\n\r\n            function fibonacci(num) {\r\n                if (num < 2) {\r\n                    return num\r\n                }\r\n                return fibonacci(num - 1) + fibonacci(num - 2)\r\n            }\r\n            self.postMessage(fibonacci(e.data));\r\n        };\r\n\r\n}\r\n})();\r\n\n\n//# sourceURL=webpack://interexy/./src/worker.js?");
+eval("\r\nonmessage = function (e) {\r\n    console.log(e);\r\n    // function fibonacci(num:number):number {\r\n    //     if (num < 2) {\r\n    //         return num\r\n    //     }\r\n    //     return fibonacci(num - 1) + fibonacci(num - 2)\r\n    // }\r\n    //postMessage(fibonacci(e.data));\r\n    postMessage(e.data);\r\n};\r\n\n\n//# sourceURL=webpack://interexy/./src/worker.ts?");
 
 /***/ })
 
@@ -26,7 +27,7 @@ eval("// import {hardCalc} from \"./index.js\";\r\n//\r\n// onmessage = function
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/worker.js"]();
+/******/ 	__webpack_modules__["./src/worker.ts"]();
 /******/ 	
 /******/ })()
 ;

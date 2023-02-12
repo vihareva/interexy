@@ -6,8 +6,8 @@ require('dotenv').config()
 
 module.exports = {
     entry: {
-        app: path.resolve(__dirname, 'src/index.js'),
-        worker: path.resolve(__dirname, 'src/worker.js')
+        app: path.resolve(__dirname, './src/index.ts'),
+        worker: path.resolve(__dirname, './src/worker.ts')
     },
     output: {
         filename: '[name].js',
@@ -23,8 +23,19 @@ module.exports = {
                     'css-loader',
                     'sass-loader',
                 ]
-            }
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                // exclude: /node_modules/,
+                // parser: {
+                //     amd: false
+                // },
+            },
         ]
+    },
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.js' ],
     },
     plugins: [
         new miniCss({
@@ -32,7 +43,8 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: __dirname + "/src/index.html",
-            excludeChunks: ['webpack']
+            inject: 'body',
+            excludeChunks: ['src/worker.ts'],
         })
     ]
 };

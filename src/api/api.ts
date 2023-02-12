@@ -15,7 +15,7 @@ instance.interceptors.response.use(function (response) {
     return Promise.reject(error);
 });
 
-export const getCharactersByName = async (name) => {
+export const getCharactersByName = async (name:string) => {
     try {
         const result = await instance.get(`character/?name=${name}`);
         return result.data.results;
@@ -24,7 +24,7 @@ export const getCharactersByName = async (name) => {
     }
 };
 
-export const getCharactersById = async (ids) => {
+export const getCharactersById = async (ids:  Array<number> | number) => {
     try {
         const result = await instance.get(`character/${ids}`);
         return result.data;
